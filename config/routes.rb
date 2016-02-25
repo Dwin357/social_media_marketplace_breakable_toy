@@ -8,13 +8,15 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
-  root 'users#new'
+  root 'tests#landing'
+
+  get 'auth/:platform/callback' => 'sessions#omni_auth'
 
   resources :users, except: [:index]
   resources :sessions, only: [:new, :create, :destroy]
 
   get 'secret' => 'tests#secret'
-
+  get 'landing' => 'tests#landing'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

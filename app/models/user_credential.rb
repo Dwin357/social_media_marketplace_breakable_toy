@@ -1,5 +1,7 @@
 class UserCredential < ActiveRecord::Base
   include BCrypt
+  
+  belongs_to :user
 
   AUTHENTICATORS = [LOGIN = 'login', TWITTER = 'twitter']
   # user.credentials.find_by(authenticator: "format").authenticate
