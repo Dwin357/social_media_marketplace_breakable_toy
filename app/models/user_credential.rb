@@ -2,12 +2,9 @@ class UserCredential < ActiveRecord::Base
   include BCrypt
 
   AUTHENTICATORS = [LOGIN = 'login', TWITTER = 'twitter']
+  # user.credentials.find_by(authenticator: "format").authenticate
 
   validates :authenticator, inclusion: {in: AUTHENTICATORS}
-
-
-
-
 
   def password
     @password ||= Password.new(token)
@@ -27,6 +24,18 @@ class UserCredential < ActiveRecord::Base
     self.password = random_password
     self.save!
     random_password
+  end
+
+
+  #############  class methods  ##########
+
+
+  def self.new_credentials_for(user, params)
+    # params right now will only have password and is just for self-signup
+    #this will need more complicated logic when multiple options (ie twitter, FB, etc)
+    credential = UserCredential.new(params)
+    credential.authenticator = "login" 
+    user.credentials << credential
   end
 
 end
