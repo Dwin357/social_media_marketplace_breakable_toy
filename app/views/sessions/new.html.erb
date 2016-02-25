@@ -1,0 +1,8 @@
+<div class='container'>
+  <div id='login-form'>
+  <p>Please Login</p>
+    <%= render partial: "shared/error_box", locals: {errors: flash[:errors]}  %>
+    <br>
+    <%= render partial: "login_form" %>
+  </div>
+</div>
