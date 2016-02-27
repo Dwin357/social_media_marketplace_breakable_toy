@@ -14,16 +14,16 @@ class SessionsController < ApplicationController
   end
 
   def omni_auth
-    @v1 = env['omniauth.auth'][:provider]
-    @v2 = env['omniauth.auth'][:uid]
-    @v3 = env['omniauth.auth'][:credentials][:token]
-    @v4 = env['omniauth.auth'][:credentials][:secret]
-    # user = UserCredential.find_or_create_user_from_omni(env['omniauth.auth'])
-    set_session(User.first)
+    # @v1 = env['omniauth.auth'][:provider]
+    # @v2 = env['omniauth.auth'][:uid]
+    # @v3 = env['omniauth.auth'][:credentials][:token]
+    # @v4 = env['omniauth.auth'][:credentials][:secret]
+    user = UserCredential.find_or_create_user_from_omni(env['omniauth.auth'])
+    # set_session(User.first)
 
-    render 'tests/secret'
-    # set_session(user)
-    # redirect_to secret_path
+    # render 'tests/secret'
+    set_session(user)
+    redirect_to secret_path
   end
 
   def destroy
