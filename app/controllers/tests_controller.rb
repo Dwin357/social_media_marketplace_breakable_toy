@@ -9,4 +9,8 @@ class TestsController < ApplicationController
   def landing
     render 'landing'
   end
+
+  def sold
+    render 'sold'
+  end
 end
