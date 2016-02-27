@@ -18,7 +18,7 @@ class UserCredential < ActiveRecord::Base
     # params right now will only have password and is just for self-signup
     #this will need more complicated logic when multiple options (ie twitter, FB, etc)
     
-    user.login_redentials << LoginCredential.new(password: params[:password])
+    user.login_credentials << LoginCredential.new(password: params[:password])
   end
 
   def self.find_or_create_user_from_omni(omniauth)
