@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
-    UserCredential.new_credentials_for(user, credential_params)
+    UserCredential.new_login_credentials_for(user, credential_params)
     if user.save
       set_session(user)
       redirect_to secret_path

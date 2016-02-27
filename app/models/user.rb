@@ -1,11 +1,6 @@
 class User < ActiveRecord::Base
   has_many :credentials, class_name: "UserCredential"
 
-  def fake_authenticate?
-    true
-  end
-
-
 
   ###########  class  ##########
   # def self.find_from_session(params)

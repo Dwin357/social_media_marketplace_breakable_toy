@@ -14,14 +14,9 @@ class SessionsController < ApplicationController
   end
 
   def omni_auth
-    if env['omniauth.auth'] 
-      user = UserCredential.find_or_create_user_from_omni(env['omniauth.auth'])
-      set_session(user)
-      redirect_to secret_path      
-    else
-      flash[:errors] = ["didn't work"]
-      render 'new'
-    end
+    user = UserCredential.find_or_create_user_from_omni(env['omniauth.auth'])
+    set_session(user)
+    redirect_to secret_path
   end
 
   def destroy
