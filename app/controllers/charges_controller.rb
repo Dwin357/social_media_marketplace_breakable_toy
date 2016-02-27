@@ -1,7 +1,7 @@
 class ChargesController < ApplicationController
 
   def new
-    @amount = 10 * 100
+    @amount = 10
   end
 
   def create
