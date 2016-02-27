@@ -12,10 +12,13 @@ class User < ActiveRecord::Base
   #   user = User.find_by(username: params[:username])
   # end
 
-  def self.find_from_omniauth(omniauth = nil)
-    if omniauth != nil
-      User.first
-    end
+  def self.from_twitter_data(omniauth)
+    User.create(
+      name: omniauth[:info][:name],
+      username: omniauth[:info][:nickname],
+      email: "",
+      role: "patron"
+      )
   end
 
 end

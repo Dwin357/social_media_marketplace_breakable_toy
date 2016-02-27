@@ -40,4 +40,22 @@ class UserCredential < ActiveRecord::Base
     user.credentials << credential
   end
 
+  def self.find_or_create_user_from_omni(omniauth)
+    case omniauth[:provider]
+    when "twitter"
+      self.find_or_create_user_from_twitter(omniauth)
+    end
+  end
+
+  def self.find_or_create_user_from_twitter(omniauth)
+    twitter_credential = TwitterCredential.find_by(uid: omniauth[:uid])
+    if twitter_credential.nil?
+      user = User.from_twitter_data(omniauth)
+      TwitterCredential.from_twitter_data(omniauth, user)
+      user
+    else
+      twitter_credential.user
+    end
+  end
+
 end
