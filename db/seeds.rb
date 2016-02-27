@@ -7,8 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.destroy_all if User.any?
-UserCredential.destroy_all if UserCredential.any?
 
-u = User.new({name: "Bruce", username: "Batman", email: "bruce@wayne.co"})
+u = User.create!({name: "Bruce", username: "Batman", email: "bruce@wayne.co"})
 u.credentials << UserCredential.new({authenticator: "login", password: "joker"})
 u.save!

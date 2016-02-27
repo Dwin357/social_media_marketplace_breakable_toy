@@ -11,10 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160227045302) do
+ActiveRecord::Schema.define(version: 20160227155012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "login_credentials", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "password_hash"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "login_credentials", ["user_id"], name: "index_login_credentials_on_user_id", using: :btree
+
+  create_table "stripe_credentials", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "uid"
+    t.string   "auth_token"
+    t.string   "auth_secret"
+    t.string   "currency"
+    t.string   "account_type"
+    t.string   "account_status"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "stripe_credentials", ["uid"], name: "index_stripe_credentials_on_uid", using: :btree
+  add_index "stripe_credentials", ["user_id"], name: "index_stripe_credentials_on_user_id", using: :btree
 
   create_table "twitter_credentials", force: :cascade do |t|
     t.integer "user_id"

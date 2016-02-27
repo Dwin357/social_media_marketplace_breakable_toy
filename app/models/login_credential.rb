@@ -4,12 +4,12 @@ class LoginCredential < ActiveRecord::Base
   belongs_to :user
 
   def password
-    @password ||= Password.new(token)
+    @password ||= Password.new(password_hash)
   end
 
   def password=(new_password)
     @password = Password.create(new_password)
-    self.token = @password
+    self.password_hash = @password
   end
 
   def authentic_password?(_password)

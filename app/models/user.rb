@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :credentials, class_name: "UserCredential"
-
+  has_many :twitter_credentials
+  has_many :login_credentials
 
   ###########  class  ##########
   # def self.find_from_session(params)
