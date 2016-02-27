@@ -13,4 +13,3 @@
 /tmp
 
 config/secrets.yml
-config/api_keys.yml
