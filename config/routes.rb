@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 
   get 'auth/:platform/callback' => 'sessions#omni_auth'
 
-  resources :users, except: [:index]
+  resources :patrons, except: [:index]
+  resources :venues, :artists
   resources :sessions, only: [:new, :create, :destroy]
   resources :charges
 
@@ -21,6 +22,20 @@ Rails.application.routes.draw do
   get 'secret' => 'tests#secret'
   get 'landing' => 'tests#landing'
   get 'sold' => 'tests#sold'
+
+
+
+  # shallow do
+  #   resources :venues, :artists, :patrons, :events do
+  #     resources :images, :videos do
+  #       resources :comments
+  #     end
+  #     resources :comments
+  #   end
+  # end
+
+
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

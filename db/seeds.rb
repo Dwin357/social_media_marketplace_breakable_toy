@@ -6,6 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.destroy_all if User.any?
+Patron.destroy_all if Patron.any?
 
-u = User.create!({name: "Bruce", username: "Batman", email: "bruce@wayne.co"})
+u = Patron.create!({name: "Bruce", username: "Batman", email: "bruce@wayne.co"})

@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160227155012) do
+ActiveRecord::Schema.define(version: 20160228054137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artists", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "username"
+    t.string   "profile_pic_url"
+    t.text     "bio"
+    t.string   "type"
+    t.string   "genere"
+    t.string   "business_name"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "login_credentials", force: :cascade do |t|
     t.integer  "user_id"
@@ -24,6 +37,17 @@ ActiveRecord::Schema.define(version: 20160227155012) do
   end
 
   add_index "login_credentials", ["user_id"], name: "index_login_credentials_on_user_id", using: :btree
+
+  create_table "patrons", force: :cascade do |t|
+    t.string   "name"
+    t.string   "username"
+    t.string   "email"
+    t.string   "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "patrons", ["name"], name: "index_patrons_on_name", using: :btree
 
   create_table "stripe_credentials", force: :cascade do |t|
     t.integer  "user_id"
@@ -50,15 +74,19 @@ ActiveRecord::Schema.define(version: 20160227155012) do
   add_index "twitter_credentials", ["uid"], name: "index_twitter_credentials_on_uid", using: :btree
   add_index "twitter_credentials", ["user_id"], name: "index_twitter_credentials_on_user_id", using: :btree
 
-  create_table "users", force: :cascade do |t|
+  create_table "venues", force: :cascade do |t|
     t.string   "name"
-    t.string   "username"
     t.string   "email"
-    t.string   "role"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "username"
+    t.string   "profile_pic_url"
+    t.text     "bio"
+    t.string   "type"
+    t.string   "business_name"
+    t.string   "genere"
+    t.integer  "capacity"
+    t.string   "address"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
-
-  add_index "users", ["name"], name: "index_users_on_name", using: :btree
 
 end

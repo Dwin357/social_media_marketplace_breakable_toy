@@ -1,0 +1,7 @@
+<div class='user-signup'>
+  <h2>Welcome</h2>
+  <%= render partial: "shared/error_box", locals: {errors: flash[:errors]} %>
+  <br>
+  <%= render partial: "shared/user_dropdown_menue", locals: {active: "patron"}
+  <%= render partial: "user_form", locals: {user: @patron} %>
+</div>

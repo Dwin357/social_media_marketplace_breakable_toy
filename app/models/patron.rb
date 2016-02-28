@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class Patron < ActiveRecord::Base
   has_many :twitter_credentials
   has_many :login_credentials
 
@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   # end
 
   def self.from_twitter_data(omniauth)
-    User.create(
+    Patron.create(
       name: omniauth[:info][:name],
       username: omniauth[:info][:nickname],
       email: "",

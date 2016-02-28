@@ -1,12 +1,12 @@
-class UsersController < ApplicationController
+class PatronsController < ApplicationController
   before_action :confirm_user_permission, only: [:update, :show, :edit, :destroy]
 
   def new
-    @user = User.new
+    @user = Patron.new
   end
 
   def create
-    user = User.new(user_params)
+    user = Patron.new(user_params)
     UserCredential.new_login_credentials_for(user, credential_params)
     if user.save
       set_session(user)
