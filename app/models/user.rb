@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  self.abstract_class=true
+
   def patron?
     self.class.to_s == "Patron"
   end
