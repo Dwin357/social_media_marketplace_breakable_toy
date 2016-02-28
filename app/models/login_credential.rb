@@ -1,4 +1,4 @@
-class LoginCredential < ActiveRecord::Base
+class LoginCredential < UserCredential
   include BCrypt
 
   belongs_to :user

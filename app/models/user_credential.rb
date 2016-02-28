@@ -1,7 +1,6 @@
 class UserCredential < ActiveRecord::Base
   
-  
-  belongs_to :patron
+  self.abstract_class = true
 
   AUTHENTICATORS = [LOGIN = 'login', TWITTER = 'twitter']
   # user.credentials.find_by(authenticator: "format").authenticate
