@@ -1,4 +1,4 @@
-class Patron < ActiveRecord::Base
+class Patron < User
   has_many :twitter_credentials
   has_many :login_credentials
 
