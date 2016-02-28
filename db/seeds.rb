@@ -8,4 +8,19 @@
 
 Patron.destroy_all if Patron.any?
 
-u = Patron.create!({name: "Bruce", username: "Batman", email: "bruce@wayne.co"})
+Venue.destroy_all if Venue.any?
+Event.destroy_all if Event.any?
+
+bm = Patron.create!({name: "Bruce", username: "Batman", email: "bruce@wayne.co"})
+
+metro = Venue.create!({name: "metro", username: "metro_admin"})
+
+5.times do |count|
+  Event.create!(
+    name: "Party #{count}", 
+    venue: metro, 
+    description: "party up in here", 
+    ticket_price: count, 
+    ticket_max: (10-count)
+  )
+end
