@@ -1,7 +1,10 @@
 class LoginCredential < UserCredential
+# class LoginCredential  < ActiveRecord::Base
+  # belongs_to :patron, foreign_key: :user_id
+
   include BCrypt
 
-  belongs_to :user
+  
 
   def password
     @password ||= Password.new(password_hash)
