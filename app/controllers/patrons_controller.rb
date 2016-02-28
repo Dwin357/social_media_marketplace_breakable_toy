@@ -2,7 +2,12 @@ class PatronsController < ApplicationController
   before_action :confirm_user_permission, only: [:update, :show, :edit, :destroy]
 
   def new
-    @user = Patron.new
+    if request.xhr?
+      render partial: "new_patron_signup"
+    else
+      @patron = Patron.new
+      render 'new'
+    end
   end
 
   def create
@@ -27,6 +32,9 @@ class PatronsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def profile
   end
 
   private

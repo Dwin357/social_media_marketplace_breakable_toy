@@ -1,15 +1,36 @@
-$(function(){
+var update_user_form = function(new_user_form){
+  $("form").remove();
+  $("#user-form-container").html(new_user_form)
+}
 
-    $("#user-dropdown li").hover(function(){
-    
-        $(this).addClass("hover");
-        $('ul:first',this).css('visibility', 'visible');
-    
-    }, function(){
-    
-        $(this).removeClass("hover");
-        $('ul:first',this).css('visibility', 'hidden');
-    
+$(document).ready(function(){
+  $('#nw-usr-patron').click(function(event){
+    event.preventDefault();
+    var request = $.ajax({
+      url: '/patrons/new'
     });
-    
+    request.done(function(response){
+      update_user_form(response);
+    });
+  });
+
+  $('#nw-usr-artist').click(function(event){
+    event.preventDefault();
+    var request = $.ajax({
+      url: '/artists/new'
+    });
+    request.done(function(response){
+      update_user_form(response);
+    });
+  });
+
+  $('#nw-usr-venue').click(function(event){
+    event.preventDefault();
+    var request = $.ajax({
+      url: '/venues/new'
+    });
+    request.done(function(response){
+      update_user_form(response);
+    });
+  });
 });

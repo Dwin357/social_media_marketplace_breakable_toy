@@ -1,6 +1,8 @@
 module SessionHelper
   def current_user
-    @current_user ||= session[:user_type].constantize.find_by_id(session[:user_id])
+    return @current_user if @current_user
+    return nil unless session[:user_type]
+    @current_user = session[:user_type].constantize.find_by_id(session[:user_id])
   end
 
   def current_user!

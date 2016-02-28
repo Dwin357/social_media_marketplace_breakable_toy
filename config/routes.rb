@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   resources :patrons, except: [:index]
   resources :venues, :artists
+
+  
   resources :sessions, only: [:new, :create, :destroy]
   resources :charges
 

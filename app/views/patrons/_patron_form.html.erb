@@ -1,15 +1,15 @@
-<%= form_for(venue, :html => {:role => 'form'}) do |f| %>
+<%= form_for(patron, :html => {:role => 'form'}) do |f| %>
   <div class='form-group'>
     <%= f.label :name %>
-    <%= f.text_field :name, :class => 'form-control', placeholder: 'Cool Name' %>
+    <%= f.text_field :name, :class => 'form-control', placeholder: 'Awsome Name' %>
   </div>
   <div class='form-group'>
     <%= f.label :username %>
-    <%= f.text_field :username, :class => 'form-control', placeholder: 'WhosCool' %>
+    <%= f.text_field :username, :class => 'form-control', placeholder: 'WhosAwsome' %>
   </div>
   <div class='form-group'>
     <%= f.label :email %>
-    <%= f.text_field :email, :class => 'form-control', placeholder: 'Cool@us.com' %>
+    <%= f.text_field :email, :class => 'form-control', placeholder: 'Awsome@me.com' %>
   </div>
   <div class='form-group'>
     <%= f.label :password %>

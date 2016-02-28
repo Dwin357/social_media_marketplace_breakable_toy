@@ -1,5 +1,12 @@
-<ul id='user-dropdown'>
-  <li><a class="drp-dwn <%=active if active=='patron'%>"href="#">Event Goer</a></li>
-  <li><a class="drp-dwn <%=active if active=='artist'%>"href="#">Artist / Promoter</a></li>
-  <li><a class="drp-dwn <%=active if active=='venue'%>"href="#">Venue</a></li>
-</ul>
+<% if user.id == nil %>
+  <div class='dropdown'>
+    <button class='btn btn-primary dropdown-toggle' type='button' data-toggle='dropdown'>
+      Account Type <span class='caret'></span>
+    </button>
+    <ul class='dropdown-menu'>
+      <li id='nw-usr-patron'><a href="#">Event Goer</a></li>
+      <li id='nw-usr-artist'><a href="#">Artist / Promoter</a></li>
+      <li id='nw-usr-venue'><a href="#">Venue</a></li>
+    </ul>
+  </div>
+<% end %>

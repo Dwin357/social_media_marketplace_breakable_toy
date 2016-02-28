@@ -1,14 +1,12 @@
-
 <div class='user-signup row'>
   <div class='col-sm-2'></div>
   <div class='col-sm-10'>
     <h2>Welcome</h2>
     <%= render partial: "shared/error_box", locals: {errors: flash[:errors]} %>
-    <%= render partial: "shared/user_dropdown_menue", locals: {user: @patron} %>
+    <%= render partial: "shared/user_dropdown_menue", locals: {user: @venue} %>
     <div id='user-form-container'>
-      <%= render partial: "patron_form", locals: {patron: @patron} %>
+      <%= render partial: "patron_form", locals: {venue: @venue} %>
     </div>
   </div>
   <div class='col-sm-2'></div>
 </div>
-
