@@ -42,13 +42,14 @@ ActiveRecord::Schema.define(version: 20160228213147) do
   add_index "events", ["venue_id"], name: "index_events_on_venue_id", using: :btree
 
   create_table "login_credentials", force: :cascade do |t|
-    t.integer  "user_id"
+    t.integer  "loginable_id"
+    t.string   "loginable_type"
     t.string   "password_hash"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
-  add_index "login_credentials", ["user_id"], name: "index_login_credentials_on_user_id", using: :btree
+  add_index "login_credentials", ["loginable_id"], name: "index_login_credentials_on_loginable_id", using: :btree
 
   create_table "patrons", force: :cascade do |t|
     t.string   "name"

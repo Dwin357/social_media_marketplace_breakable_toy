@@ -1,11 +1,10 @@
 class UserCredential < ActiveRecord::Base
   self.abstract_class = true
 
-  # belongs_to :patron, foreign_key: :user
-  belongs_to :patron, foreign_key: :user_id
+  
 
 
-  AUTHENTICATORS = [LOGIN = 'login', TWITTER = 'twitter']
+  # AUTHENTICATORS = [LOGIN = 'login', TWITTER = 'twitter']
   # user.credentials.find_by(authenticator: "format").authenticate
 
   # validates :authenticator, inclusion: {in: AUTHENTICATORS}

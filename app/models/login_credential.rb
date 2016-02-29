@@ -1,10 +1,8 @@
 class LoginCredential < UserCredential
-# class LoginCredential  < ActiveRecord::Base
-  # belongs_to :patron, foreign_key: :user_id
 
   include BCrypt
-
   
+  belongs_to :loginable, polymorphic: true
 
   def password
     @password ||= Password.new(password_hash)
@@ -25,6 +23,4 @@ class LoginCredential < UserCredential
     self.save!
     random_password
   end
-
-
 end

@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
   self.abstract_class=true
 
+  has_one :login, class_name: :LoginCredential, as: :loginable
+
   def patron?
     self.class.to_s == "Patron"
   end

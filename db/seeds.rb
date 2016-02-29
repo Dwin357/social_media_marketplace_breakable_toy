@@ -7,13 +7,17 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Patron.destroy_all if Patron.any?
-
+LoginCredential.destroy_all if LoginCredential.any?
 Venue.destroy_all if Venue.any?
 Event.destroy_all if Event.any?
 
 bm = Patron.create!({name: "Bruce", username: "Batman", email: "bruce@wayne.co"})
 
+bm.login = LoginCredential.create(password: "joker")
+
 metro = Venue.create!({name: "metro", username: "metro_admin"})
+
+metro.login = LoginCredential.create(password: "house wins")
 
 5.times do |count|
   Event.create!(
