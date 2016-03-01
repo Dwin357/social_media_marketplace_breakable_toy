@@ -1,4 +1,6 @@
 module SessionHelper
+
+  
   def current_user
     return @current_user if @current_user
     return nil unless session[:user_type]
