@@ -1,3 +1,3 @@
-class Event < ActiveRecord::Base
+class Event < SocialFunction
   belongs_to :venue
 end

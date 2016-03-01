@@ -1,3 +1,3 @@
 class Artist < User
-  has_many :login_credentials
+  has_many :gatherings
 end

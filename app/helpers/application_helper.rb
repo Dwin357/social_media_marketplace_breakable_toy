@@ -1,4 +1,4 @@
 module ApplicationHelper
   include SessionHelper
-  include NewUserHelper
+  include NavBarHelper
 end
