@@ -1,3 +1,3 @@
-class Venue < User
+class Venue < Promoter
   has_many :events
 end

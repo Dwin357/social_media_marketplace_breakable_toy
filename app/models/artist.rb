@@ -1,3 +1,3 @@
-class Artist < User
+class Artist < Promoter
   has_many :gatherings
 end

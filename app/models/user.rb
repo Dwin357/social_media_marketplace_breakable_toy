@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
 
   has_one :login, class_name: :LoginCredential, as: :loginable
 
+  def valid_password?(_password)
+    self.login.authentic_password?(_password)
+  end
+
   def patron?
     self.class.to_s == "Patron"
   end
