@@ -4,7 +4,8 @@ class Promoter < User
   # totally bogus association between two abstract classes
   has_many :social_functions
 
-  def upcoming_events
-    self.social_functions.where(date >= Time.now)
-  end
+  
+  # def upcoming_events
+  #   self.social_functions.where(date >= Time.now)
+  # end
 end
